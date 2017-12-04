@@ -90,7 +90,8 @@ public class AppUsageStatisticsFragment extends Fragment {
                 if (statsUsageInterval != null) {
                     List<UsageStats> usageStatsList =
                             getUsageStatistics(statsUsageInterval.mInterval);
-                    Collections.sort(usageStatsList, new LastTimeLaunchedComparatorDesc());
+                     Collections.sort(usageStatsList, new LastTimeLaunchedComparatorDesc());
+//                    Collections.sort(usageStatsList, new TotalTimeLaunchedComparatorDesc());
                     updateAppsList(usageStatsList);
                 }
             }
@@ -101,6 +102,7 @@ public class AppUsageStatisticsFragment extends Fragment {
         });
     }
 
+    // Here's a problem: Total time used is one year long, not controlled by time spin
     public List<UsageStats> getUsageStatistics(int intervalType) {
         // Get the app statistics since one year ago from the current time.
         Calendar cal = Calendar.getInstance();
@@ -157,6 +159,14 @@ public class AppUsageStatisticsFragment extends Fragment {
         }
     }
 
+    //  UsedTime Comparator
+    //  comparator has some problem -- cannot sort correctly
+    private static class TotalTimeLaunchedComparatorDesc implements Comparator<UsageStats> {
+        @Override
+        public int compare(UsageStats left, UsageStats right) {
+            return Long.compare(right.getTotalTimeInForeground(), left.getTotalTimeInForeground());
+        }
+    }
 
     //VisibleForTesting
     static enum StatsUsageInterval {
