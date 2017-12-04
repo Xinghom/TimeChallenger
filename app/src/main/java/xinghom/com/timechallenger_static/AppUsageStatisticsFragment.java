@@ -90,8 +90,8 @@ public class AppUsageStatisticsFragment extends Fragment {
                 if (statsUsageInterval != null) {
                     List<UsageStats> usageStatsList =
                             getUsageStatistics(statsUsageInterval.mInterval);
-                     Collections.sort(usageStatsList, new LastTimeLaunchedComparatorDesc());
-//                    Collections.sort(usageStatsList, new TotalTimeLaunchedComparatorDesc());
+//                     Collections.sort(usageStatsList, new LastTimeLaunchedComparatorDesc());
+                    Collections.sort(usageStatsList, new TotalTimeLaunchedComparatorDesc());
                     updateAppsList(usageStatsList);
                 }
             }
