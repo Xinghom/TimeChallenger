@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id ="@+id/pieChart"
+        android:id ="@+id/statisticsItem"
         android:title ="Statistics"
         />
     <item
-        android:id ="@+id/remove_item"
+        android:id ="@+id/challengeModeItem"
         android:title ="ChallengeMode"
         />
 </menu>
