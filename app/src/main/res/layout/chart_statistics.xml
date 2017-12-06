@@ -30,6 +30,6 @@
     <xinghom.com.timechallenger_static.view.PieChart
         android:id="@+id/pic_chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
