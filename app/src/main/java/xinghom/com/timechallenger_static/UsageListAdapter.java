@@ -70,7 +70,7 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
                 mCustomUsageStatsList.get(position).usageStats.getPackageName());
         long lastTimeUsed = mCustomUsageStatsList.get(position).usageStats.getLastTimeUsed();
         long totalTimeUsed = mCustomUsageStatsList.get(position).usageStats.getTotalTimeInForeground();
-        viewHolder.getLastTimeUsed().setText(mDateFormat.format(new Date(lastTimeUsed)));
+//        viewHolder.getLastTimeUsed().setText(mDateFormat.format(new Date(lastTimeUsed)));
         viewHolder.getTotalTimeUsed().setText(Long.toString(totalTimeUsed/1000) + " Sec");
         viewHolder.getAppIcon().setImageDrawable(mCustomUsageStatsList.get(position).appIcon);
     }
