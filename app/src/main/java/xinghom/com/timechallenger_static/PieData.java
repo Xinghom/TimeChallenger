@@ -9,6 +9,7 @@ public class PieData {
      * 用户传递的数据
      */
     private float value; //值
+    private String name;
     /**
      * 计算出来的数据
      */
@@ -19,7 +20,8 @@ public class PieData {
 
     public PieData() {
     }
-    public PieData(float value) {
+    public PieData(String name, float value) {
+        this.name = name;
         this.value = value;
     }
     public float getValue() {
@@ -29,6 +31,15 @@ public class PieData {
     public void setValue(float value) {
         this.value = value;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public float getPercentage() {
         return percentage;

@@ -44,6 +44,7 @@ public class AppUsageStatisticsFragment extends Fragment {
     Spinner mSpinner;
     ProgressBar mProgressBar;
 
+
     public static AppUsageStatisticsFragment newInstance() {
         AppUsageStatisticsFragment fragment = new AppUsageStatisticsFragment();
         return fragment;
@@ -150,6 +151,7 @@ public class AppUsageStatisticsFragment extends Fragment {
             }
             customUsageStatsList.add(customUsageStats);
         }
+
         mUsageListAdapter.setCustomUsageStatsList(customUsageStatsList);
         mUsageListAdapter.notifyDataSetChanged();
         mRecyclerView.scrollToPosition(0);
@@ -161,6 +163,17 @@ public class AppUsageStatisticsFragment extends Fragment {
         public int compare(UsageStats left, UsageStats right) {
             return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
         }
+    }
+
+    public interface CallBack{
+        /*定义一个获取信息的方法*/
+        public void getResult(String result);
+    }
+
+    public void getData(CallBack callBack){
+    /*获取文本框的信息,当然你也可以传其他类型的参数,看需求咯*/
+        String msg = "callback";
+        callBack.getResult(msg);
     }
 
     //  UsedTime Comparator

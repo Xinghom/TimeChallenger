@@ -8,26 +8,36 @@
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_part"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_medium">
+        <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="distributedly"/>
+            android:text="@string/time_span"
+            android:textSize="16dp"
+            />
 
-        <Button
-            android:id="@+id/btn_count"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="continuously"/>
+        <Spinner android:id="@+id/statistic_time_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <!--<Button-->
+            <!--android:id="@+id/btn_part"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="distributedly"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_count"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="continuously"/>-->
     </LinearLayout>
 
-    <xinghom.com.timechallenger_static.view.PieChart
+    <!--<xinghom.com.timechallenger_static.PieChart-->
+    <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pic_chart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

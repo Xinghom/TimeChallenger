@@ -49,8 +49,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.statisticsItem: Toast.makeText( this, "Statistics", Toast.LENGTH_SHORT). show();
+            case R.id.statisticsItem: {
+                Toast.makeText( this, "Statistics", Toast.LENGTH_SHORT). show();
+                Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+                startActivity(intent);
                 break;
+            }
             case R.id.challengeModeItem: Toast.makeText( this, "ChallengeMode", Toast.LENGTH_SHORT). show();
                 break;
             default:
