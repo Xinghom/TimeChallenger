@@ -80,7 +80,13 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
 //        viewHolder.getLastTimeUsed().setText(mDateFormat.format(new Date(lastTimeUsed)));
         int time = (int)totalTimeUsed;
         viewHolder.getmProgressBar().setProgress(time/10000);
-        viewHolder.getTotalTimeUsed().setText(Long.toString(totalTimeUsed/1000) + " Sec");
+        long sec = totalTimeUsed / 1000;
+        long min = sec / 60;
+        long hour = min / 60;
+        if (min < 1)
+            viewHolder.getTotalTimeUsed().setText(Long.toString(totalTimeUsed/1000) + " Sec");
+        else
+            viewHolder.getTotalTimeUsed().setText(Long.toString(min) + " Min");
         viewHolder.getAppIcon().setImageDrawable(mCustomUsageStatsList.get(position).appIcon);
     }
 
