@@ -219,10 +219,10 @@ public class PieChart extends View {
         //绘制文字
         mPaint.setColor(0xEEFF4567);
         mPaint.setTextSize(80);
-        String str = "Xinghom";
+        String str = "";
         Rect textRect = new Rect();
         mPaint.getTextBounds(str, 0, str.length(), textRect);
-        canvas.drawText("Xinghom", -textRect.width() / 2, 0, mPaint);
+        canvas.drawText("", -textRect.width() / 2, 0, mPaint);
     }
 
     /**
