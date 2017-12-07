@@ -1,5 +1,6 @@
 package xinghom.com.timechallenger_static;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -26,15 +27,19 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.statisticsItem: Toast.makeText( this, "Statistics", Toast.LENGTH_SHORT). show();
+            case
+                R.id.statisticsItem: Toast.makeText( this, "Statistics", Toast.LENGTH_SHORT). show();
                 break;
-            case R.id.challengeModeItem: Toast.makeText( this, "ChallengeMode", Toast.LENGTH_SHORT). show();
+            case
+                R.id.challengeModeItem: Toast.makeText( this, "ChallengeMode", Toast.LENGTH_SHORT). show();
+                Intent intent = new Intent(MainActivity.this, ChallengeMode.class);
+                startActivity(intent);
                 break;
+
+
             default:
         }
         return true;
     }
-
-
 }
 

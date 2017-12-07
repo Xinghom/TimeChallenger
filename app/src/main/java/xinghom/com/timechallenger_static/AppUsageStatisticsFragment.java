@@ -102,7 +102,6 @@ public class AppUsageStatisticsFragment extends Fragment {
         });
     }
 
-    // Here's a problem: Total time used is one year long, not controlled by time spin
     public List<UsageStats> getUsageStatistics(int intervalType) {
         // Get the app statistics since one year ago from the current time.
         Calendar cal = Calendar.getInstance();
