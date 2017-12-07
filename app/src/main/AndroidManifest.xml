@@ -19,15 +19,12 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
         <activity
             android:name=".ChallengeMode"
             android:screenOrientation="portrait" />
-=======
         <activity android:name=".Activity2"></activity>
 
         <activity android:name=".ChartActivity"></activity>
->>>>>>> master
     </application>
 
 </manifest>

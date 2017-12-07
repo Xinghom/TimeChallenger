@@ -49,14 +49,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case
-                R.id.challengeModeItem: Toast.makeText( this, "ChallengeMode", Toast.LENGTH_SHORT). show();
-                Intent intent_c = new Intent(MainActivity.this, ChallengeMode.class);
-                startActivity(intent_c);
             case R.id.statisticsItem: {
-                Toast.makeText( this, "Statistics", Toast.LENGTH_SHORT). show();
+                Toast.makeText(this, "Statistics", Toast.LENGTH_SHORT).show();
                 Intent intent_s = new Intent(MainActivity.this, ChartActivity.class);
                 startActivity(intent_s);
+                break;
+            }
+            case R.id.challengeModeItem: {
+                Toast.makeText( this, "ChallengeMode", Toast.LENGTH_SHORT). show();
+                Intent intent_c = new Intent(MainActivity.this, ChallengeMode.class);
+                startActivity(intent_c);
                 break;
             }
             default:
@@ -79,10 +81,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent= new Intent(MainActivity.this,Activity2.class);
+            Intent intent= new Intent(MainActivity.this, ChartActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(MainActivity.this, ChallengeMode.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_send) {
 
