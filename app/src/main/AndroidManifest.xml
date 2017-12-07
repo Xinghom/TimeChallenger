@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xinghom.com.timechallenger_static">
 
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
 
     <application
         android:allowBackup="true"
@@ -19,9 +19,15 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity
             android:name=".ChallengeMode"
             android:screenOrientation="portrait" />
+=======
+        <activity android:name=".Activity2"></activity>
+
+        <activity android:name=".ChartActivity"></activity>
+>>>>>>> master
     </application>
 
 </manifest>

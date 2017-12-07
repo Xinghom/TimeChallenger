@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -41,6 +42,8 @@ public class AppUsageStatisticsFragment extends Fragment {
     RecyclerView.LayoutManager mLayoutManager;
     Button mOpenUsageSettingButton;
     Spinner mSpinner;
+    ProgressBar mProgressBar;
+
 
     public static AppUsageStatisticsFragment newInstance() {
         AppUsageStatisticsFragment fragment = new AppUsageStatisticsFragment();
@@ -54,14 +57,16 @@ public class AppUsageStatisticsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mProgressBar = (ProgressBar) getActivity().findViewById(R.id.numberbar1);
         mUsageStatsManager = (UsageStatsManager) getActivity()
                 .getSystemService("usagestats"); //Context.USAGE_STATS_SERVICE
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_app_usage_statistics, container, false);
     }
 
@@ -145,6 +150,7 @@ public class AppUsageStatisticsFragment extends Fragment {
             }
             customUsageStatsList.add(customUsageStats);
         }
+
         mUsageListAdapter.setCustomUsageStatsList(customUsageStatsList);
         mUsageListAdapter.notifyDataSetChanged();
         mRecyclerView.scrollToPosition(0);
@@ -156,6 +162,17 @@ public class AppUsageStatisticsFragment extends Fragment {
         public int compare(UsageStats left, UsageStats right) {
             return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
         }
+    }
+
+    public interface CallBack{
+        /*定义一个获取信息的方法*/
+        public void getResult(String result);
+    }
+
+    public void getData(CallBack callBack){
+    /*获取文本框的信息,当然你也可以传其他类型的参数,看需求咯*/
+        String msg = "callback";
+        callBack.getResult(msg);
     }
 
     //  UsedTime Comparator

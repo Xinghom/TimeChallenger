@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -28,6 +29,7 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
         private final TextView mLastTimeUsed;
         private final ImageView mAppIcon;
         private final TextView mTotalTimeUsed;
+        ProgressBar mProgressBar;
 
         public ViewHolder(View v) {
             super(v);
@@ -35,6 +37,7 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
             mLastTimeUsed = (TextView) v.findViewById(R.id.textview_last_time_used);
             mAppIcon = (ImageView) v.findViewById(R.id.app_icon);
             mTotalTimeUsed = (TextView) v.findViewById(R.id.textview_total_time_used);
+            mProgressBar = (ProgressBar) v.findViewById(R.id.numberbar1);
         }
 
         public TextView getLastTimeUsed() {
@@ -51,6 +54,10 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
 
         public ImageView getAppIcon() {
             return mAppIcon;
+        }
+
+        public ProgressBar getmProgressBar(){
+            return mProgressBar;
         }
     }
 
@@ -71,6 +78,8 @@ public class UsageListAdapter extends RecyclerView.Adapter<UsageListAdapter.View
         long lastTimeUsed = mCustomUsageStatsList.get(position).usageStats.getLastTimeUsed();
         long totalTimeUsed = mCustomUsageStatsList.get(position).usageStats.getTotalTimeInForeground();
 //        viewHolder.getLastTimeUsed().setText(mDateFormat.format(new Date(lastTimeUsed)));
+        int time = (int)totalTimeUsed;
+        viewHolder.getmProgressBar().setProgress(time/10000);
         viewHolder.getTotalTimeUsed().setText(Long.toString(totalTimeUsed/1000) + " Sec");
         viewHolder.getAppIcon().setImageDrawable(mCustomUsageStatsList.get(position).appIcon);
     }
